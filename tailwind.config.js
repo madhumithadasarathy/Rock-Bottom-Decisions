@@ -18,9 +18,9 @@ export default {
         'eraser-pink': '#f8b4b4',
       },
       fontFamily: {
-        hand: ['Caveat', 'cursive'],
-        sketch: ['Patrick Hand', 'cursive'],
-        scribble: ['Kalam', 'cursive'],
+        hand: ['Patrick Hand', 'cursive'],
+        sketch: ['Short Stack', 'cursive'],
+        scribble: ['Gloria Hallelujah', 'cursive'],
       },
     },
   },

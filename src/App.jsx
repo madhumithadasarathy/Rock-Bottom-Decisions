@@ -1,16 +1,16 @@
 import { useState } from 'react'
 import { AnimatePresence } from 'framer-motion'
-import Landing from './components/Landing'
+import Home from './pages/Home'
 import GameBoard from './components/GameBoard'
 
 function App() {
   const [screen, setScreen] = useState('landing')
 
   return (
-    <div className="min-h-screen notebook-bg paper-texture">
+    <div className="min-h-screen">
       <AnimatePresence mode="wait">
         {screen === 'landing' ? (
-          <Landing key="landing" onStart={() => setScreen('game')} />
+          <Home key="landing" onStart={() => setScreen('game')} />
         ) : (
           <GameBoard key="game" onBack={() => setScreen('landing')} />
         )}

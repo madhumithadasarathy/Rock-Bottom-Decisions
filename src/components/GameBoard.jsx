@@ -1,8 +1,10 @@
-import { useState, useCallback } from 'react'
+import { useState, useCallback, useMemo } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import ChoiceCard from './ChoiceCard'
 import ScoreBoard from './ScoreBoard'
 import ResultBanner from './ResultBanner'
+import Doodle from './Doodle'
+import StickyNote from './StickyNote'
 
 const choices = ['rock', 'paper', 'scissors']
 
@@ -82,33 +84,22 @@ export default function GameBoard({ onBack }) {
 
   return (
     <motion.div
-      className="min-h-screen flex flex-col items-center relative px-4 py-6 sm:py-10"
+      className="min-h-screen notebook-paper paper-texture flex flex-col items-center relative px-4 py-6 sm:py-10 overflow-hidden"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0, y: 40 }}
       transition={{ duration: 0.5 }}
     >
-      {/* Notebook decorations */}
-      <div className="notebook-margin absolute inset-0 pointer-events-none" />
-      <div className="notebook-holes absolute inset-0 pointer-events-none" />
+      {/* Background Doodles */}
+      <Doodle type="text" content="don't look at my answers!" top="10%" left="15%" rotation={-5} />
+      <Doodle type="arrow" top="20%" right="10%" rotation={45} />
+      <Doodle type="tictactoe" bottom="10%" right="15%" rotation={-10} />
+      <Doodle type="text" content="CPU is cheating..." bottom="20%" left="5%" rotation={12} />
 
-      {/* Margin doodles (desktop only) */}
-      {marginDoodles.map((d, i) => (
-        <span
-          key={i}
-          className="absolute left-2 hidden lg:block"
-          style={{
-            top: d.top,
-            fontFamily: 'var(--font-scribble)',
-            fontSize: '0.7rem',
-            color: 'var(--color-pencil-gray)',
-            opacity: 0.4,
-            transform: `rotate(${d.rotate}deg)`,
-          }}
-        >
-          {d.text}
-        </span>
-      ))}
+      {/* Sticky Note Hint */}
+      <div className="absolute top-24 -right-12 hidden xl:block">
+        <StickyNote text="Pro Tip: Rock always works... except when it doesn't." rotation={4} />
+      </div>
 
       {/* Header */}
       <div className="relative z-10 w-full max-w-2xl">
@@ -124,13 +115,11 @@ export default function GameBoard({ onBack }) {
           </motion.button>
 
           <motion.h1
-            className="text-2xl sm:text-3xl md:text-4xl font-bold text-center"
-            style={{ fontFamily: 'var(--font-hand)' }}
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
+            className="text-3xl sm:text-4xl md:text-5xl font-bold text-center font-scribble"
+            initial={{ opacity: 0, y: -10, rotate: -2 }}
+            animate={{ opacity: 1, y: 0, rotate: -1 }}
           >
-            Rock Bottom{' '}
-            <span className="highlight-yellow">Decisions</span>
+            Rock Bottom <span className="highlight-yellow">Decisions</span>
           </motion.h1>
 
           <motion.button

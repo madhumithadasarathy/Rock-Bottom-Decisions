@@ -59,11 +59,10 @@ export default function ResultBanner({ result, playerChoice, computerChoice }) {
     <AnimatePresence>
       <motion.div
         id="result-banner"
-        className="w-full max-w-md mx-auto mt-6 p-5 rounded-sm relative overflow-hidden"
+        className="w-full max-w-md mx-auto mt-6 p-5 relative overflow-hidden hand-drawn-box"
         style={{
           background: style.bg,
-          border: `2.5px solid ${style.border}`,
-          borderRadius: '255px 15px 225px 15px / 15px 225px 15px 255px',
+          borderColor: style.border,
         }}
         initial={{ opacity: 0, scale: 0.8, rotate: -3 }}
         animate={{
@@ -90,22 +89,20 @@ export default function ResultBanner({ result, playerChoice, computerChoice }) {
 
         {/* Match summary */}
         <motion.div
-          className="text-center text-xl mb-2"
-          style={{ fontFamily: 'var(--font-sketch)' }}
+          className="text-center text-xl mb-2 font-sketch"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.15 }}
         >
           <span>{choiceEmojis[playerChoice]}</span>
-          <span className="mx-3 text-[var(--color-pencil-gray)]">vs</span>
+          <span className="mx-3 text-pencil opacity-40">vs</span>
           <span>{choiceEmojis[computerChoice]}</span>
         </motion.div>
 
         {/* Result text */}
         <motion.h2
-          className="text-center text-2xl sm:text-3xl font-bold"
+          className="text-center text-2xl sm:text-3xl font-bold font-hand"
           style={{
-            fontFamily: 'var(--font-hand)',
             color: style.color,
           }}
           initial={{ opacity: 0, y: 15 }}
@@ -119,10 +116,8 @@ export default function ResultBanner({ result, playerChoice, computerChoice }) {
 
         {/* Sub message */}
         <motion.p
-          className="text-center mt-2 text-sm"
+          className="text-center mt-2 text-sm font-scribble text-pencil opacity-60"
           style={{
-            fontFamily: 'var(--font-scribble)',
-            color: 'var(--color-pencil-gray)',
             transform: 'rotate(-1deg)',
           }}
           initial={{ opacity: 0 }}

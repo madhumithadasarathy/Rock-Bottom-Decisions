@@ -3,181 +3,86 @@
 @tailwind utilities;
 
 /* ============================================
-   ROCK BOTTOM DECISIONS — Notebook Theme
+   ROCK BOTTOM DECISIONS — Ultra-Creative Notebook Theme
    ============================================ */
 
-/* Base Styles */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
+:root {
+  --color-paper: #fdf6e3;
+  --color-ink: #1e1e1e;
+  --color-red-mistake: #d64545;
+  --color-blue-win: #4a90e2;
+  --color-yellow-sticky: #fff59d;
+  --color-pencil: #4a4a4a;
 }
 
 body {
-  font-family: 'Caveat', cursive;
-  background-color: #fdf6e3;
-  color: #1e1e1e;
+  font-family: 'Patrick Hand', cursive;
+  background-color: var(--color-paper);
+  color: var(--color-ink);
   min-height: 100vh;
   overflow-x: hidden;
 }
 
-/* Notebook lined background */
-.notebook-bg {
-  background-color: #fdf6e3;
-  background-image:
-    linear-gradient(#b0b0b0 1px, transparent 1px);
-  background-size: 100% 32px;
-  background-position: 0 20px;
-}
-
-/* Red margin line */
-.notebook-margin {
+/* Notebook background with lines and margin */
+.notebook-paper {
+  background-color: var(--color-paper);
+  background-image: 
+    linear-gradient(90deg, transparent 79px, #abced4 79px, #abced4 81px, transparent 81px),
+    linear-gradient(#eee .1em, transparent .1em);
+  background-size: 100% 1.5em;
   position: relative;
 }
 
-.notebook-margin::before {
+.notebook-paper::before {
   content: '';
   position: absolute;
-  left: 60px;
   top: 0;
+  left: 80px;
   bottom: 0;
   width: 2px;
-  background-color: #d64545;
-  opacity: 0.35;
-  z-index: 1;
+  background-color: var(--color-red-mistake);
+  opacity: 0.4;
+  z-index: 0;
 }
 
-/* Punched holes */
-.notebook-holes {
+/* Scribble underline SVG effect */
+.scribble-underline {
   position: relative;
+  display: inline-block;
 }
 
-.notebook-holes::after {
-  content: '';
-  position: absolute;
-  left: 20px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background: rgba(0, 0, 0, 0.06);
-  box-shadow:
-    0 -120px 0 rgba(0, 0, 0, 0.06),
-    0 120px 0 rgba(0, 0, 0, 0.06),
-    0 -240px 0 rgba(0, 0, 0, 0.06),
-    0 240px 0 rgba(0, 0, 0, 0.06);
-}
-
-/* Hand-drawn border effect */
-.hand-drawn-border {
-  border: 2.5px solid #1e1e1e;
-  border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
-}
-
-/* Highlighted text */
-.highlight-yellow {
-  background: linear-gradient(
-    180deg,
-    transparent 55%,
-    rgba(255, 209, 102, 0.5) 55%
-  );
-  display: inline;
-}
-
-/* Crossed out / strikethrough doodle */
-.scribble-strike {
-  text-decoration: line-through;
-  text-decoration-color: #d64545;
-  text-decoration-thickness: 2px;
-  text-decoration-style: wavy;
-}
-
-/* Underline doodle */
-.doodle-underline {
+/* Red squiggly underline like spellcheck */
+.spellcheck-error {
   text-decoration: underline;
-  text-decoration-color: #4a90e2;
-  text-decoration-thickness: 2px;
   text-decoration-style: wavy;
+  text-decoration-color: var(--color-red-mistake);
+  text-decoration-thickness: 2px;
 }
 
-/* Sketchy button styles */
-.sketch-btn {
-  font-family: 'Caveat', cursive;
-  font-size: 1.4rem;
-  padding: 14px 32px;
-  background: transparent;
-  border: 2.5px solid #1e1e1e;
-  border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
-  cursor: pointer;
-  color: #1e1e1e;
+/* Messy hand-drawn border */
+.hand-drawn-box {
+  border: 3px solid var(--color-ink);
+  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+  padding: 1rem;
+  background: white;
+  box-shadow: 2px 5px 10px rgba(0,0,0,0.1);
+  transform: rotate(-0.5deg);
+}
+
+/* Button style */
+.btn-sketch {
+  font-family: 'Gloria Hallelujah', cursive;
+  border: 3px solid var(--color-ink);
+  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+  background: white;
   transition: all 0.2s ease;
-  position: relative;
+  cursor: pointer;
 }
 
-.sketch-btn:hover {
-  background-color: #ffd166;
-  transform: rotate(-1deg) scale(1.03);
-}
-
-.sketch-btn:active {
-  transform: rotate(0.5deg) scale(0.97);
-}
-
-/* Doodle card */
-.doodle-card {
-  border: 2.5px solid #1e1e1e;
-  border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
-  background: #fdf6e3;
-  padding: 20px;
-  position: relative;
-}
-
-/* Animations */
-@keyframes scribble-in {
-  0% {
-    clip-path: inset(0 100% 0 0);
-    opacity: 0;
-  }
-  100% {
-    clip-path: inset(0 0 0 0);
-    opacity: 1;
-  }
-}
-
-@keyframes pencil-write {
-  0% {
-    width: 0;
-    opacity: 0;
-  }
-  100% {
-    width: 100%;
-    opacity: 1;
-  }
-}
-
-@keyframes wiggle {
-  0%, 100% { transform: rotate(-2deg); }
-  25% { transform: rotate(2deg); }
-  50% { transform: rotate(-1deg); }
-  75% { transform: rotate(1.5deg); }
-}
-
-@keyframes float-doodle {
-  0%, 100% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(-8px) rotate(2deg); }
-}
-
-.animate-wiggle {
-  animation: wiggle 0.5s ease-in-out;
-}
-
-.animate-float {
-  animation: float-doodle 3s ease-in-out infinite;
+.btn-sketch:hover {
+  transform: scale(1.05) rotate(1deg);
+  background: var(--color-yellow-sticky);
+  box-shadow: 4px 8px 15px rgba(0,0,0,0.15);
 }
 
 /* Paper texture overlay */
@@ -189,50 +94,34 @@ body {
   content: '';
   position: absolute;
   inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.04'/%3E%3C/svg%3E");
   pointer-events: none;
-  z-index: 0;
+  z-index: 100;
+  mix-blend-mode: multiply;
 }
 
-/* Margin doodles */
-.margin-note {
-  font-family: 'Kalam', cursive;
-  font-size: 0.85rem;
-  color: #b0b0b0;
-  transform: rotate(-5deg);
-  position: absolute;
+/* Floating animation for doodles */
+@keyframes float {
+  0% { transform: translateY(0) rotate(-1deg); }
+  50% { transform: translateY(-10px) rotate(1deg); }
+  100% { transform: translateY(0) rotate(-1deg); }
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .notebook-margin::before {
-    left: 30px;
-  }
-
-  .notebook-holes::after {
-    left: 8px;
-    width: 14px;
-    height: 14px;
-    box-shadow:
-      0 -80px 0 rgba(0, 0, 0, 0.06),
-      0 80px 0 rgba(0, 0, 0, 0.06);
-  }
+.animate-float {
+  animation: float 4s ease-in-out infinite;
 }
 
-/* Scrollbar styling */
+/* Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #fdf6e3;
+  background: var(--color-paper);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #b0b0b0;
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #4a4a4a;
+  background: #ccc;
+  border: 2px solid var(--color-paper);
+  border-radius: 10px;
 }

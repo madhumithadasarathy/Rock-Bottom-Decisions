@@ -47,15 +47,14 @@ export default function ScoreBoard({ scores }) {
 
           {/* Score box */}
           <div
-            className="doodle-card flex flex-col items-center justify-center w-20 h-24 sm:w-24 sm:h-28"
+            className="hand-drawn-box flex flex-col items-center justify-center w-20 h-24 sm:w-24 sm:h-28"
             style={{
               borderColor: item.color,
             }}
           >
             <motion.span
-              className="text-3xl sm:text-4xl font-bold leading-none"
+              className="text-3xl sm:text-4xl font-bold leading-none font-hand"
               style={{
-                fontFamily: 'var(--font-hand)',
                 color: item.color,
               }}
               key={item.value}
@@ -71,11 +70,7 @@ export default function ScoreBoard({ scores }) {
             </motion.span>
 
             <span
-              className="text-sm mt-1"
-              style={{
-                fontFamily: 'var(--font-sketch)',
-                color: 'var(--color-ink-light)',
-              }}
+              className="text-sm mt-1 font-sketch text-ink-light"
             >
               {item.label}
             </span>
