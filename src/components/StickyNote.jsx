@@ -9,8 +9,11 @@ const StickyNote = ({ text, children, color = '#fff59d', rotation = -2, classNam
         backgroundColor: color,
         transform: `rotate(${rotation}deg)`,
         fontFamily: "'Patrick Hand', cursive",
-        width: 'fit-content',
-        maxWidth: '250px',
+        width: '300px',
+        minHeight: '300px',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
         borderBottomRightRadius: '40px 10px',
       }}
       initial={{ scale: 0, rotate: rotation - 10 }}
