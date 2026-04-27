@@ -10,37 +10,37 @@ const Home = ({ onStart }) => {
   // A massive list of doodles to make the page look "full"
   const doodles = useMemo(() => [
     // Existing ones
-    { type: 'text', content: 'class is boring...', top: '15%', left: '5%', rotation: -12 },
-    { type: 'cloud', content: '', top: '8%', right: '12%', rotation: 5 },
-    { type: 'text', content: 'brain on vacation ☁️', top: '14%', right: '8%', rotation: 8 },
-    { type: 'tictactoe', top: '75%', left: '10%', rotation: 15 },
-    { type: 'text', content: 'future me will hate this', bottom: '15%', right: '5%', rotation: -5 },
-    { type: 'arrow', top: '45%', left: '12%', rotation: 160 },
-    { type: 'skull', bottom: '25%', left: '8%', rotation: -10 },
-    { type: 'text', content: '← pick this one', top: '65%', right: '20%', rotation: 5 },
-    { type: 'text', content: 'lol', top: '40%', right: '5%', rotation: 20 },
+    { type: 'text', content: 'class is boring...', top: '15%', left: '2%', rotation: -12 },
+    { type: 'cloud', content: '', top: '2%', right: '25%', rotation: 5 },
+    { type: 'text', content: 'brain on vacation ☁️', top: '18%', right: '2%', rotation: 8 },
+    { type: 'tictactoe', bottom: '8%', left: '12%', rotation: 15 },
+    { type: 'text', content: 'future me will hate this', bottom: '2%', right: '20%', rotation: -5 },
+    { type: 'arrow', top: '40%', left: '6%', rotation: 160 },
+    { type: 'skull', bottom: '15%', left: '2%', rotation: -10 },
+    { type: 'text', content: '← pick this one', top: '70%', right: '12%', rotation: 5 },
+    { type: 'text', content: 'lol', top: '35%', right: '2%', rotation: 20 },
     
     // New ones
-    { type: 'heart', top: '5%', left: '20%', rotation: 10, color: '#ff758c', opacity: 0.8 },
-    { type: 'star', bottom: '35%', right: '15%', rotation: -15, color: '#ffd166', opacity: 0.9 },
-    { type: 'coffee', top: '60%', left: '5%', rotation: 0, opacity: 0.3 },
-    { type: 'text', content: 'why am I here?', top: '25%', left: '22%', rotation: -5, opacity: 0.5 },
-    { type: 'text', content: 'DO NOT FORGET!', bottom: '10%', left: '30%', rotation: 2, color: '#d64545', opacity: 0.7 },
-    { type: 'arrow', bottom: '12%', left: '45%', rotation: 270, scale: 0.8 },
-    { type: 'text', content: 'ZZZzz...', top: '5%', right: '35%', rotation: -10, opacity: 0.4 },
-    { type: 'text', content: 'Wait, what?', middle: 'true', top: '50%', left: '80%', rotation: -25, opacity: 0.5 },
-    { type: 'heart', top: '80%', left: '25%', rotation: -20, color: '#ffb3ba', opacity: 0.6 },
-    { type: 'text', content: 'No mistakes, only doodles.', top: '35%', left: '60%', rotation: 3, opacity: 0.4 },
-    { type: 'star', top: '15%', left: '45%', rotation: 45, color: '#9bf6ff', opacity: 0.5 },
+    { type: 'heart', top: '2%', left: '25%', rotation: 10, color: '#ff758c', opacity: 0.8 },
+    { type: 'star', bottom: '25%', right: '2%', rotation: -15, color: '#ffd166', opacity: 0.9 },
+    { type: 'coffee', top: '75%', left: '4%', rotation: 0, opacity: 0.3 },
+    { type: 'text', content: 'why am I here?', top: '28%', left: '15%', rotation: -5, opacity: 0.5 },
+    { type: 'text', content: 'DO NOT FORGET!', bottom: '2%', left: '30%', rotation: 2, color: '#d64545', opacity: 0.7 },
+    { type: 'arrow', bottom: '5%', left: '45%', rotation: 270, scale: 0.8 },
+    { type: 'text', content: 'ZZZzz...', top: '2%', right: '40%', rotation: -10, opacity: 0.4 },
+    { type: 'text', content: 'Wait, what?', top: '55%', right: '10%', rotation: -25, opacity: 0.5 },
+    { type: 'heart', top: '85%', left: '25%', rotation: -20, color: '#ffb3ba', opacity: 0.6 },
+    { type: 'text', content: 'No mistakes, only doodles.', top: '38%', right: '25%', rotation: 3, opacity: 0.4 },
+    { type: 'star', top: '10%', left: '45%', rotation: 45, color: '#9bf6ff', opacity: 0.5 },
   ], []);
 
   const stickers = useMemo(() => [
-    { text: 'A+ Effort', emoji: '⭐', bgColor: '#ffadad', top: '10%', left: '10%', rotation: -15 },
-    { text: 'Boring!', emoji: '🥱', bgColor: '#ffd166', top: '20%', right: '20%', rotation: 10 },
-    { text: 'Winner', emoji: '🏆', bgColor: '#9bf6ff', bottom: '20%', left: '15%', rotation: 5 },
-    { text: 'Chaos', emoji: '🌀', bgColor: '#caffbf', bottom: '15%', right: '10%', rotation: -8 },
-    { emoji: '🍕', bgColor: '#bdb2ff', top: '40%', left: '18%', rotation: 12 },
-    { text: 'RAD!', emoji: '🛹', bgColor: '#ffc6ff', top: '70%', right: '5%', rotation: -5 },
+    { text: 'A+ Effort', emoji: '⭐', bgColor: '#ffadad', top: '4%', left: '8%', rotation: -15 },
+    { text: 'Boring!', emoji: '🥱', bgColor: '#ffd166', top: '8%', right: '8%', rotation: 10 },
+    { text: 'Winner', emoji: '🏆', bgColor: '#9bf6ff', bottom: '6%', left: '6%', rotation: 5 },
+    { text: 'Chaos', emoji: '🌀', bgColor: '#caffbf', bottom: '12%', right: '4%', rotation: -8 },
+    { emoji: '🍕', bgColor: '#bdb2ff', top: '55%', left: '4%', rotation: 12 },
+    { text: 'RAD!', emoji: '🛹', bgColor: '#ffc6ff', bottom: '4%', right: '15%', rotation: -5 },
   ], []);
 
   const tapes = useMemo(() => [
